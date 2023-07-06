@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <profiles>
+    <profile name="Desktop">
+      <displayConfigurations>
+        <displayConfiguration deviceName="\\.\DISPLAY1" sourceId="0" targetId="24838" displayName="LC32G7xT" resolutionWidth="2560" resolutionHeight="1440" positionX="0" positionY="0" vSyncNumerator="239958" vSyncDenominator="1000" isHdrSupported="true" isHdrEnabled="false" />
+        <displayConfiguration deviceName="\\.\DISPLAY2" sourceId="1" targetId="24834" displayName="DELL U2718Q" resolutionWidth="3840" resolutionHeight="2160" positionX="-3840" positionY="0" vSyncNumerator="59940" vSyncDenominator="1000" isHdrSupported="false" isHdrEnabled="false" />
+      </displayConfigurations>
+    </profile>
+    <profile name="Primary Display">
+      <displayConfigurations>
+        <displayConfiguration deviceName="\\.\DISPLAY1" sourceId="0" targetId="24838" displayName="LC32G7xT" resolutionWidth="2560" resolutionHeight="1440" positionX="0" positionY="0" vSyncNumerator="239958" vSyncDenominator="1000" isHdrSupported="true" isHdrEnabled="true" />
+      </displayConfigurations>
+    </profile>
+    <profile name="Test 144Hz">
+      <displayConfigurations>
+        <displayConfiguration deviceName="\\.\DISPLAY1" sourceId="0" targetId="24838" displayName="LC32G7xT" resolutionWidth="2560" resolutionHeight="1440" positionX="0" positionY="0" vSyncNumerator="144" vSyncDenominator="1" isHdrSupported="true" isHdrEnabled="false" />
+      </displayConfigurations>
+    </profile>
+    <profile name="Simulator">
+      <displayConfigurations>
+        <displayConfiguration deviceName="\\.\DISPLAY1" sourceId="0" targetId="24832" displayName="ASUS PG329" resolutionWidth="2560" resolutionHeight="1440" positionX="-2560" positionY="0" vSyncNumerator="165069" vSyncDenominator="1000" isHdrSupported="true" isHdrEnabled="true" />
+        <displayConfiguration deviceName="\\.\DISPLAY2" sourceId="1" targetId="24835" displayName="ASUS PG329" resolutionWidth="2560" resolutionHeight="1440" positionX="2560" positionY="0" vSyncNumerator="165069" vSyncDenominator="1000" isHdrSupported="true" isHdrEnabled="true" />
+        <displayConfiguration deviceName="\\.\DISPLAY3" sourceId="2" targetId="24838" displayName="ASUS PG329" resolutionWidth="2560" resolutionHeight="1440" positionX="0" positionY="0" vSyncNumerator="165069" vSyncDenominator="1000" isHdrSupported="true" isHdrEnabled="true" />
+      </displayConfigurations>
+    </profile>
+  </profiles>
+  <settings showOnlyAvailableProfiles="false" minimizeToTray="false" startMinimized="false" />
+</configuration>

@@ -1,0 +1,9 @@
+﻿namespace DomainModel.Win32.Enumerations
+{
+    public enum DISPLAYCONFIG_PATH
+    {
+        DISPLAYCONFIG_PATH_ACTIVE               = 0x00000001,
+        DISPLAYCONFIG_PATH_PREFERRED_UNSCALED   = 0x00000004,
+        DISPLAYCONFIG_PATH_SUPPORT_VIRTUAL_MODE = 0x00000008
+    }
+}

@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cv="clr-namespace:DisplayControl.Views.Resources.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles/BasicButtonStyle.xaml"/>
+        <ResourceDictionary Source="Styles/BasicTextBoxStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <cv:PriorityErrorListConverter x:Key="PriorityErrorListConverter"/>
+
+    <Style x:Key="ErrorTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Margin" Value="0,0,0,2" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontStyle" Value="Italic" />
+        <Setter Property="Foreground" Value="Red" />
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\DialogView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HomeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Resources\Controls\ConfigurationDisplay.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Resources\Controls\LoadingSpinner.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\EditProfileView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ViewModelFrame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WaitToSwitchProfileView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DialogView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HomeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resources\Controls\ConfigurationDisplay.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resources\Controls\LoadingSpinner.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resources\DialogView.Resources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resources\WaitToSwitchProfileView.Resources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resources\SaveProfileView.Resources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resources\HomeView.Resources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resources\Styles\BasicButtonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Resources\Styles\BasicTextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\EditProfileView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewModelFrame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WaitToSwitchProfileView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

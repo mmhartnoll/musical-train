@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="DisplayControl.Views.ViewModelFrame"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:DisplayControl.ViewModels">
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="ContentTemplate" DataType="{x:Type vm:ViewModelFrame}">
+            <Grid UseLayoutRounding="False"
+                  SnapsToDevicePixels="True">
+                <ContentPresenter Content="{Binding Previous}"
+                                  IsEnabled="False"/>
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Black" Opacity="0.4"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <ContentPresenter Content="{Binding Current}"/>
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource ContentTemplate}"/>
+</UserControl>

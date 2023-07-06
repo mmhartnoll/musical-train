@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="DisplayControl.Views.Resources.Controls.ConfigurationDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:cn="clr-namespace:DisplayControl.Views.Resources.Controls"
+             xmlns:cv="clr-namespace:DisplayControl.Views.Resources.Converters"
+             xmlns:en="clr-namespace:DomainModel.Entities;assembly=DomainModel">
+    <UserControl.Resources>
+        <cv:ScaleAndOffsetConverter x:Key="ScaleAndOffsetConverter" />
+        <cv:VSyncFrequencyConverter x:Key="VSyncFrequencyConverter"/>
+    </UserControl.Resources>
+    
+    <ContentPresenter Content="{Binding RelativeSource={RelativeSource AncestorType={x:Type cn:ConfigurationDisplay}}}">
+        <ContentPresenter.ContentTemplate>
+            <DataTemplate DataType="{x:Type cn:ConfigurationDisplay}">
+                <ItemsControl ItemsSource="{Binding DisplayConfigurations}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type en:DisplayConfiguration}">
+                            <Grid>
+                                <Grid.Width>
+                                    <MultiBinding Converter="{StaticResource ScaleAndOffsetConverter}">
+                                        <Binding Path="ResolutionX"/>
+                                        <Binding RelativeSource="{RelativeSource AncestorType={x:Type cn:ConfigurationDisplay}}" Path="ScaleFactor"/>
+                                    </MultiBinding>
+                                </Grid.Width>
+                                <Grid.Height>
+                                    <MultiBinding Converter="{StaticResource ScaleAndOffsetConverter}">
+                                        <Binding Path="ResolutionY"/>
+                                        <Binding RelativeSource="{RelativeSource AncestorType={x:Type cn:ConfigurationDisplay}}" Path="ScaleFactor"/>
+                                    </MultiBinding>
+                                </Grid.Height>
+                                <Border BorderBrush="Transparent"
+                                        BorderThickness="1">
+                                    <Border BorderBrush="DarkSlateGray"
+                                            BorderThickness="2">
+                                        <Border x:Name="InnerBorder"
+                                                BorderThickness="5">
+                                            <Border.BorderBrush>
+                                                <SolidColorBrush Color="SteelBlue" Opacity="0.3"/>
+                                            </Border.BorderBrush>
+                                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <TextBlock Text="{Binding DeviceName}" HorizontalAlignment="Center" FontSize="14" Foreground="Black"/>
+                                                <TextBlock Text="{Binding DisplayName}" HorizontalAlignment="Center" FontSize="20" Foreground="Black"/>
+                                                <TextBlock HorizontalAlignment="Center" FontSize="14" FontWeight="SemiBold" Foreground="Black">
+                                                    <TextBlock.Text>
+                                                        <MultiBinding StringFormat="{}{0} x {1}">
+                                                            <Binding Path="ResolutionX"/>
+                                                            <Binding Path="ResolutionY"/>
+                                                        </MultiBinding>
+                                                    </TextBlock.Text>
+                                                </TextBlock>
+                                                <StackPanel Orientation="Horizontal"
+                                                            HorizontalAlignment="Center">
+                                                    <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="Black">
+                                                        <TextBlock.Text>
+                                                            <MultiBinding Converter="{StaticResource VSyncFrequencyConverter}">
+                                                                <Binding Path="VSyncNumerator"/>
+                                                                <Binding Path="VSyncDenominator"/>
+                                                            </MultiBinding>
+                                                        </TextBlock.Text>
+                                                    </TextBlock>
+                                                    <TextBlock x:Name="HdrLabel" Text=" HDR" FontSize="12" Foreground="Black"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Border>
+                                    </Border>
+                                </Border>
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsTargetAvailable}" Value="False">
+                                    <Setter TargetName="InnerBorder" Property="BorderBrush">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter TargetName="InnerBorder" Property="Background">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="Gray" Opacity="0.1"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsHdrEnabled}" Value="False">
+                                    <Setter TargetName="HdrLabel" Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style>
+                            <Setter Property="Canvas.Left">
+                                <Setter.Value>
+                                    <MultiBinding Converter="{StaticResource ScaleAndOffsetConverter}">
+                                        <Binding Path="PositionX"/>
+                                        <Binding RelativeSource="{RelativeSource AncestorType={x:Type cn:ConfigurationDisplay}}" Path="ScaleFactor"/>
+                                        <Binding RelativeSource="{RelativeSource AncestorType={x:Type cn:ConfigurationDisplay}}" Path="OffsetX"/>
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Canvas.Top">
+                                <Setter.Value>
+                                    <MultiBinding Converter="{StaticResource ScaleAndOffsetConverter}">
+                                        <Binding Path="PositionY"/>
+                                        <Binding RelativeSource="{RelativeSource AncestorType={x:Type cn:ConfigurationDisplay}}" Path="ScaleFactor"/>
+                                        <Binding RelativeSource="{RelativeSource AncestorType={x:Type cn:ConfigurationDisplay}}" Path="OffsetY"/>
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+            </DataTemplate>
+        </ContentPresenter.ContentTemplate>
+    </ContentPresenter>
+    
+</UserControl>

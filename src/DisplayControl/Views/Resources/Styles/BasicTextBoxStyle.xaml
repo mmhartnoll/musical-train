@@ -1,0 +1,86 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:a="clr-namespace:DisplayControl.Views.Resources.AttachedProperties">
+
+    <Style x:Key="BasicTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Padding" Value="6,3,6,3" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="SteelBlue" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border Background="Black"
+                                CornerRadius="1"
+                                Opacity="0.2" />
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="0" />
+                        <Border x:Name="BackgroundOverlay"
+                                Margin="0,0,0,1"
+                                Background="Transparent"
+                                BorderThickness="0" />
+                        <Border x:Name="Border"
+                                Background="Transparent"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <ScrollViewer x:Name="PART_ContentHost" />
+                                <TextBlock x:Name="Watermark"
+                                           Padding="{TemplateBinding Padding}"
+                                           FontStyle="Italic"
+                                           Opacity="0.4"
+                                           Text="{Binding Path=(a:TextBox.Watermark), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                           Visibility="Hidden" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False" />
+                                <Condition Property="Text" Value="" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Watermark" Property="Visibility" Value="Visible" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False" />
+                                <Condition Property="Text" Value="{x:Null}" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Watermark" Property="Visibility" Value="Visible" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter TargetName="BackgroundOverlay" Property="Background" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="BackgroundOverlay" Property="Opacity" Value="0.05" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="BackgroundOverlay" Property="Background" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="BackgroundOverlay" Property="Opacity" Value="0.10" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="BackgroundOverlay" Property="Background" Value="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="BackgroundOverlay" Property="Opacity" Value="0.15" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="Opacity" Value="0.4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="BorderBrush" Value="Red" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

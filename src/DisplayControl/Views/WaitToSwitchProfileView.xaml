@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="DisplayControl.Views.WaitToSwitchProfileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:DisplayControl.ViewModels"
+             xmlns:cn="clr-namespace:DisplayControl.Views.Resources.Controls">
+    <UserControl.Resources>
+        <ResourceDictionary Source="Resources/WaitToSwitchProfileView.Resources.xaml" />
+    </UserControl.Resources>
+
+    <ContentPresenter Content="{Binding}">
+        <ContentPresenter.ContentTemplate>
+            <DataTemplate DataType="{x:Type vm:WaitToSwitchProfileViewModel}">
+
+                <cn:ContentFrame Header="Waiting to Switch Profile"
+                                 Width="700"
+                                 Height="Auto"
+                                 Padding="60,20,60,10">
+                    <StackPanel Orientation="Vertical">
+                        <cn:ConfigurationDisplay DisplayConfigurations="{Binding DisplayProfile.DisplayConfigurations}"
+                                                Width="500"
+                                                Height="200"/>
+                        <Grid Width="Auto" Margin="0,40,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            
+                        </Grid>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right">
+                            <Button Command="{Binding CancelCommand}"
+                                    Style="{StaticResource BasicButtonStyle}"
+                                    Content="Cancel"
+                                    Margin="0,0,6,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </cn:ContentFrame>
+
+            </DataTemplate>
+        </ContentPresenter.ContentTemplate>
+    </ContentPresenter>
+
+</UserControl>

@@ -1,0 +1,30 @@
+﻿<Application x:Class="DisplayControl.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:DisplayControl.ViewModels"
+             xmlns:vw="clr-namespace:DisplayControl.Views"
+             Startup="Application_Startup">
+    <Application.Resources>
+
+        <DataTemplate DataType="{x:Type vm:ViewModelFrame}">
+            <vw:ViewModelFrame />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:DialogViewModel}">
+            <vw:DialogView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+            <vw:HomeView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:EditProfileViewModel}">
+            <vw:EditProfileView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:WaitToSwitchProfileViewModel}">
+            <vw:WaitToSwitchProfileView />
+        </DataTemplate>
+
+    </Application.Resources>
+</Application>

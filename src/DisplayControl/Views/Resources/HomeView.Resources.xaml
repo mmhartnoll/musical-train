@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cv="clr-namespace:DisplayControl.Views.Resources.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles/BasicButtonStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <cv:HasFlagConverter x:Key="HasFlagConverter"/>
+
+</ResourceDictionary>
