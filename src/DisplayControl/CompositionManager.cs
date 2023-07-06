@@ -44,7 +44,7 @@ namespace DisplayControl
         private void LogDomainLogEvent(DomainLogEvent domainLogEvent)
             => LoggingService.Log(domainLogEvent.Level, domainLogEvent.Message);
 
-        private const string ConfigurationFilePath = @"C:\Users\mmhar\source\repos\mmhartnoll\musical-train\src\DisplayControl\Configuration.json";
-        private const string LogFilePath = @"C:\Users\mmhar\OneDrive\Desktop\DisplayControl_Log.txt";
+        private const string ConfigurationFilePath = @"..\..\..\Configuration.json";
+        private const string LogFilePath = @"..\..\..\Logs\DisplayControl_Log.txt";
     }
 }
