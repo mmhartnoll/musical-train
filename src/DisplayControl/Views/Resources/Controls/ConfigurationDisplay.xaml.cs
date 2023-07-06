@@ -1,7 +1,6 @@
 ﻿using DomainModel.Entities;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
@@ -17,9 +16,9 @@ namespace DisplayControl.Views.Resources.Controls
         private double offsetX;
         private double offsetY;
 
-        public ObservableCollection<DisplayConfiguration> DisplayConfigurations
+        public IEnumerable<DisplayConfiguration> DisplayConfigurations
         {
-            get => (ObservableCollection<DisplayConfiguration>)GetValue(DisplayConfigurationsProperty);
+            get => (IEnumerable<DisplayConfiguration>)GetValue(DisplayConfigurationsProperty);
             set => SetValue(DisplayConfigurationsProperty, value);
         }
 
@@ -42,7 +41,7 @@ namespace DisplayControl.Views.Resources.Controls
         }
 
         public static readonly DependencyProperty DisplayConfigurationsProperty =
-            DependencyProperty.Register("DisplayConfigurations", typeof(ObservableCollection<DisplayConfiguration>), typeof(ConfigurationDisplay),
+            DependencyProperty.Register("DisplayConfigurations", typeof(IEnumerable<DisplayConfiguration>), typeof(ConfigurationDisplay),
                 new PropertyMetadata(default, new(OnDisplaysChanged)));
 
         public event PropertyChangedEventHandler? PropertyChanged;
